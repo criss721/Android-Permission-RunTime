@@ -32,3 +32,37 @@ copy/paste this class in your project [MyPermissionHandler.java](https://github.
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
   }
 ```
+
+# Multi Permission : 
+
+```java
+final String[] permissions = new String[]{
+      android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+      , android.Manifest.permission.ACCESS_COARSE_LOCATION
+      , android.Manifest.permission.ACCESS_FINE_LOCATION
+    };
+
+    final String[] permissions2 = new String[]{
+      android.Manifest.permission.INTERNET
+      , android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+      , android.Manifest.permission.ACCESS_COARSE_LOCATION
+      , android.Manifest.permission.ACCESS_FINE_LOCATION};
+
+
+    new MyPermissionHandler().request(this, permissions2, new MyPermissionHandler.RequestListener() {
+      @Override
+      public void onGranted(String permission) {
+        Log.i("LOG", "onGranted : " + permission);
+      }
+
+      @Override
+      public void onDenied(String permission) {
+        Log.i("LOG", "onDenied : " + permission);
+      }
+
+      @Override
+      public void onTaskDone() {
+        Log.i("LOG", "onTaskDone");
+      }
+    });
+    ```
