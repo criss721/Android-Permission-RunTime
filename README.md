@@ -33,7 +33,7 @@ copy/paste this class in your project [MyPermissionHandler.java](https://github.
   }
 ```
 
-# Multi Permission : 
+# Multi Permission request : 
 
 ```java
 final String[] permissions = new String[]{
