@@ -66,4 +66,9 @@ final String[] permissions = new String[]{
       }
     });
     
+         @Override
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    MyPermissionHandler.onRequestPermissionResult(requestCode, permissions, grantResults);
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+  }
  
